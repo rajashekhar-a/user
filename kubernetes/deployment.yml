@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user
+  labels:
+    app: user
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      tier: user
+  template:
+    metadata:
+      labels:
+        tier: user
+    spec:
+      containers:
+        - name: cart
+          image: 863518461004.dkr.ecr.us-east-1.amazonaws.com/user:latest
