@@ -1,8 +1,8 @@
 FROM      node:18
-RUN       useradd -m -d /app roboshop
+RUN       useradd -ms /bin/bash roboshop
 USER      roboshop
 WORKDIR   /app
-COPY      package.json .
-COPY      server.js .
+COPY      --chown=roboshop:roboshop package.json ./
+COPY      --chown=roboshop:roboshop server.js ./
 RUN       npm install
 CMD       ["node", "server.js"]

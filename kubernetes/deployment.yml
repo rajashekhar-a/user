@@ -17,6 +17,8 @@ spec:
       containers:
         - name: user
           image: 863518461004.dkr.ecr.us-east-1.amazonaws.com/user:latest
+          ports:
+            - containerPort: 8080
           env:
             - name: MONGO_URL
               valueFrom:
