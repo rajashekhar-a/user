@@ -17,3 +17,14 @@ spec:
       containers:
         - name: user
           image: 863518461004.dkr.ecr.us-east-1.amazonaws.com/user:latest
+          env:
+            - name: MONGO_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: user-config
+                  key: MONGO_URL
+            - name: REDIS_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: user-config
+                  key: REDIS_HOST
